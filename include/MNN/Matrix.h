@@ -239,7 +239,7 @@ public:
     bool preservesAxisAlignment() const {
         return this->rectStaysRect();
     }
-
+#ifndef SWIG
     /** Matrix organizes its values in row order. These members correspond to
         each value in Matrix.
     */
@@ -262,7 +262,7 @@ public:
     static constexpr int kAScaleY = 3; //!< vertical scale factor
     static constexpr int kATransX = 4; //!< horizontal translation
     static constexpr int kATransY = 5; //!< vertical translation
-
+#endif
     /** Returns one matrix value. Asserts if index is out of range and SK_DEBUG is
         defined.
 

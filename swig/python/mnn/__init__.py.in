@@ -1,0 +1,19 @@
+import sys
+import warnings
+from . import mnn
+
+__version__ = MNN_VERSION
+
+_thismodule = sys.modules[__name__]
+
+class MnnProxy(object):
+    def __getattr__(self, name):
+        if hasattr(_thismodule, name):
+            return getattr(_thismodule, name)
+        elif hasattr(mnn, name):
+            warnings.warn('"import mnn" is deprecated, instead use "from mnn import mnn"')
+            return getattr(mnn, name)
+        else:
+            raise AttributeError
+
+sys.modules[__name__] = MnnProxy()

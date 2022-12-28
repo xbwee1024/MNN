@@ -18,9 +18,9 @@ namespace MNN {
 namespace Train {
 struct MNN_PUBLIC DatasetPtr {
 public:
-    std::shared_ptr<BatchDataset> mDataset;
+    std::shared_ptr<MNN::Train::BatchDataset> mDataset;
 
-    DataLoader* createLoader(
+    MNN::Train::DataLoader* createLoader(
                               const int batchSize,
                               const bool stack = true,
                               const bool shuffle = true,

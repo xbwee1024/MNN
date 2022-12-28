@@ -94,10 +94,10 @@ public:
      * @brief get affine transform matrix.
      * @return affine transform matrix.
      */
-    inline const Matrix& matrix() const {
+    inline const MNN::CV::Matrix& matrix() const {
         return mTransform;
     }
-    void setMatrix(const Matrix& matrix);
+    void setMatrix(const MNN::CV::Matrix& matrix);
 
     /**
      * @brief convert source data to given tensor.

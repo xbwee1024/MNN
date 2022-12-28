@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include <stddef.h>
 
-typedef enum {
+enum MNNForwardType {
     MNN_FORWARD_CPU = 0,
 
     /*
@@ -48,9 +48,9 @@ typedef enum {
     */
     MNN_FORWARD_CPU_EXTENSION
 
-} MNNForwardType;
+};
 
-typedef enum {
+enum MNNGpuMode {
     // choose one tuning mode Only
     MNN_GPU_TUNING_NONE    = 1 << 0,/* Forbidden tuning, performance not good */
     MNN_GPU_TUNING_HEAVY  = 1 << 1,/* heavily tuning, usually not suggested */
@@ -63,7 +63,7 @@ typedef enum {
      then choose the better one according to performance*/
     MNN_GPU_MEMORY_BUFFER = 1 << 6,/* User assign mode */
     MNN_GPU_MEMORY_IMAGE  = 1 << 7,/* User assign mode */
-} MNNGpuMode;
+};
 
 #ifdef __cplusplus
 namespace MNN {

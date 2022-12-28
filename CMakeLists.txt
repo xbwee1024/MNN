@@ -60,6 +60,13 @@ option(MNN_BUILD_OPENCV "Build OpenCV api in MNN." OFF)
 option(MNN_INTERNAL "Build with MNN internal features, such as model authentication, metrics logging" OFF)
 option(MNN_JNI "Build MNN Jni for java to use" OFF)
 
+# Should the language bindings be regenereted?
+option(RUN_SWIG "Generate language bindings with SWIG" OFF)
+# Should Python bindings be built?
+option(PYTHON_BINDINGS "Build Python bindings" OFF)
+# Should Java bindings be built?
+option(JAVA_BINDINGS "Build Java bindings" OFF)
+
 IF (NOT DEFINED MNN_USE_SPARSE_COMPUTE)
   IF (TARGET_OS_IPHONE OR TARGET_OS_SIMULATOR)
     set(MNN_USE_SPARSE_COMPUTE OFF)
@@ -804,3 +811,7 @@ ENDIF()
 if (MNN_JNI)
     add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/source/jni/)
 endif()
+
+if (JAVA_BINDINGS OR PYTHON_BINDINGS)
+    add_subdirectory(swig)
+endif ()
